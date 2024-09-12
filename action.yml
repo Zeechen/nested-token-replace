@@ -1,8 +1,6 @@
 name: 'Replace token in file(s) nested'
 description:
-  'Replace given tokens in files. Token values can be read from token value
-  file(s) or environment variables. One token value can reference another
-  token(s)'
+  'Token values can be read from token value file(s) or environment variables. Token value can reference another token(s)'
 author: 'zee chen'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
