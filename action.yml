@@ -1,0 +1,44 @@
+name: 'Replace token in files with matching token value file(s)'
+description:
+  'Replace given tokens in files. Token values can be read from token value
+  file(s).'
+author: 'zeec@simtars'
+
+# Add your action's branding here. This will appear on the GitHub Marketplace.
+branding:
+  icon: 'heart'
+  color: 'red'
+
+# Define your inputs here.
+inputs:
+  tokenPrefix:
+    description: ''
+    default: '#{'
+  tokenSuffix:
+    description: ''
+    default: '}#'
+  files:
+    description: 'files to be replaced, string array, file name can use regex'
+    default: '[]'
+  tokenValueFiles:
+    description:
+      'token value files - optional if not specified, token values will be read
+      from environment variables'
+    default: '[]'
+  environment:
+    description: 'optional load token from environment variables'
+    default: ''
+  repo-token:
+    description:
+      'optional GitHub token, if environment is supplied, this token will be
+      used to access variables'
+    default: ''
+
+# Define your outputs here.
+outputs:
+  changedFiles:
+    description: 'details of files being changed'
+
+runs:
+  using: node20
+  main: dist/index.js
