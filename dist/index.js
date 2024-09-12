@@ -29524,10 +29524,11 @@ async function run() {
         core.debug('Resolve Tokens...');
         const tokens = await resolveInputTokens();
         core.debug(new Date().toTimeString());
+        let changedFiles = [];
         if (tokens.length > 0) {
             const prefix = core.getInput('tokenPrefix');
             const suffix = core.getInput('tokenSuffix');
-            const changedFiles = await (0, token_replace_1.replaceTokensInFile)(files, tokens, prefix, suffix);
+            changedFiles = await (0, token_replace_1.replaceTokensInFile)(files, tokens, prefix, suffix);
             //output result
             for (const file of changedFiles) {
                 core.info(`Replaced tokens in file: ${file}.`);
@@ -29537,7 +29538,7 @@ async function run() {
             core.warning('No tokens were provided.');
         }
         // Set outputs for other workflow steps to use
-        core.setOutput('time', new Date().toTimeString());
+        core.setOutput('changedFiles', changedFiles);
     }
     catch (error) {
         // Fail the workflow run if an error occurs
