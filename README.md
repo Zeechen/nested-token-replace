@@ -27,7 +27,7 @@ and URL token's value can be like: #{PROTOCOL}#://#{DOMAIN}#:#{PORT}# where
 ### If you want to replace tokens in all of your txt files from token value files, add the action to your workflow like this:
 
 ```yml
-- uses: Zeechen/nested-token-replace@v1
+- uses: Zeechen/nested-token-replace@v0
   with:
     files: test-files/*.txt
     tokenValueFiles: test-files/test.tkconf
@@ -51,7 +51,7 @@ one example of token value file is like:
 ### The token key value pairs can also be read from variables for an environment in github, add the action to your workflow like this:
 
 ```yml
-- uses: Zeechen/nested-token-replace@v1
+- uses: Zeechen/nested-token-replace@v0
   with:
     files: test-files/*.txt
     environment: TEST
@@ -64,7 +64,7 @@ and the variables will be added to this environment like below:
 ### If you want to use a different token format, you can specify a custom token prefix/suffix. For example you could add:
 
 ```yml
-- uses: Zeechen/nested-token-replace@v1
+- uses: Zeechen/nested-token-replace@v0
   with:
     tokenPrefix: '{'
     tokenSuffix: '}'
